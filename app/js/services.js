@@ -4,7 +4,15 @@
 
 angular.module('littlebirdServices', ['ngResource']).
     factory('Level', function($resource){
-  return $resource('phones/:phoneId.json', {}, {
-    query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-  });
+	  return $resource('data/:phoneId.json', {}, {
+	    query: {method:'GET', params:{phoneId:'levels'}, isArray:true}
+	  });
+});
+
+
+angular.module('infographicServices', ['ngResource']).
+    factory('Value', function($resource){
+	  return $resource('data/measurements.json?fdsfsd=fdsfds', {}, {
+	    query: {method:'GET', params:{}, isArray:true}
+	  });
 });

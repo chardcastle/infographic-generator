@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Little Bird</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/infographic-app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+
+    <link rel="stylesheet" href="css/demo.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/customAttributes'>
+
+    <script src="lib/raphael.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="lib/drawValue.js"></script>
+
+  <style media="screen">
+    
+
+      .value {
+        font-family: 'Fauna One', serif;
+        font-size: 30px;
+      }
+
+  </style>  
+
+</head>
+<body>
+
+  <div ng-view></div>
+
+
+        <script>
+
+            $(function(){
+                $(".value").drawValue();
+            })
+        </script>
+    
+        <div class="value" id="canvas" data-percentage="20"></div>
+
+        <div class="value" id="value-one" data-percentage="20"></div>
+        <div class="value" id="value-two" data-percentage="37"></div>
+        <div class="value" id="value-three" data-percentage="88"></div>
+        <div class="value" id="value-four" data-percentage="12"></div>
+        <div class="value" id="value-five" data-percentage="70"></div>
+        <div class="value" id="value-six" data-percentage="54"></div>
+
+
+</body>
+</html>

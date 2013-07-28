@@ -82,3 +82,25 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+.value-title {
+  font-family: 'Fauna One', serif;
+  color: #666;
+  font-size: 16px;
+  line-height: 18px;
+  min-height: 60px;
+}
+.infographic-column {
+  position: relative;
+  
+}
+.sink {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.pad-bottom {
+  padding-bottom: 18px;
+}
+.pad-top {
+  padding-top: 18px;
+}

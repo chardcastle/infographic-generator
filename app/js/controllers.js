@@ -23,3 +23,12 @@ function LittleBirdLevelDetailCtrl($scope, $routeParams, Level) {
 }
 
 //PhoneDetailCtrl.$inject = ['$scope', '$routeParams', 'Phone'];
+
+function InfographicCtrl($scope, Value) {
+  $scope.values = Value.query();
+
+  console.log($scope.values);
+  $scope.orderProp = 'level';
+ 
+}
+

@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+      <!--Sidebar content-->      
+      <form class="infographic-column">
+        <fieldset>
+          
+          <div class="alert alert-success">
+            <p><strong>What now?</strong> enter new values in the boxes below to update the illustrations to the right.</p>            
+          </div>
+          <div id="error" class="alert alert-error" style="display:none">
+            <p><strong>Error,</strong> please provide a percentage number between 0 and 100. No validation on large values.</p>
+          </div>    
+
+
+            <div ng-repeat="value in values | filter:query | orderBy:orderProp" class="pad-top">
+              <div class="form-group thumbnail">
+                <label>{{value.name}} (%)</label>            
+                <input type="text" class="form-control input-small" id="value-{{value.id}}-ctl"              
+                  data-old-value="{{value.percentage}}"              
+                  placeholder="{{value.percentage}}"
+                  infographic-control="{id:'{{value.id}}'}">
+               </div>
+            </div>
+
+
+        </fieldset>
+      </form>
+
+    </div>
+    <div class="span8">
+      <!--Body content-->
+
+
+      <div ng-repeat="value in values | filter:query | orderBy:orderProp" class="span2">
+        <h4 class="value-title">{{value.name}}</h4>
+        <div class="value" id="value-{{value.id}}" 
+              data-percentage="{{value.percentage}}" 
+              infographic-display="{percentage: '{{value.percentage}}', id:'{{value.id}}'}">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="span8">
+      <div class="span8" style="padding-top:50px">
+        
+        <div class="alert alert-info">
+          <p><strong>Hello,</strong> this is a demonstration and play ground for a few things that are coming up at work for me. Not cross browser tested. One and half days development, 28th June 2013</p>
+          <p>Configuration for infographics is provided by file or can be updated in real time.</p>
+          <p>Written using <a href="http://angularjs.org" title="Check out angular js">angularjs</a>, <a href="http://jquery.com" href="Check out jQuery">jQuery</a>, <a href="http://raphaeljs.com" title="Check out Rapheal">RaphealJS</a> and styled with <a href="http://twitter.github.io/bootstrap/" title="Checkout out bootstrap">Bootstrap</a> by Chris Hardcastle</p>
+          </div>
+        </div>
+      
+    </div> 
+  </div>
+</div>

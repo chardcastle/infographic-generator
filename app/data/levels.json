@@ -1,0 +1,30 @@
+[
+    {
+        "level": 0, 
+        "id": "berry-nibble", 
+        "birdUrl": "phones/img/motorola-xoom-with-wi-fi.0.jpg", 
+        "name": "Nibble some berries", 
+        "snippet": "You've landed on a branch and have found some berries. Click to eat."
+    }, 
+    {
+        "level": 1, 
+        "id": "find-the-worm", 
+        "birdUrl": "img/phones/motorola-xoom.0.jpg", 
+        "name": "Find the worm", 
+        "snippet": "Find the worm in one of these boxes, you've two changes before he escapes. Click to choose."
+    }, 
+    {
+        "level": 2,         
+        "id": "eat-the-seeds", 
+        "imageUrl": "img/phones/motorola-atrix-4g.0.jpg", 
+        "name": "Eat from the feeder", 
+        "snippet": "There's lots of yummy seeds to eat in here. Click to see how fast you can eat them."
+    }, 
+    {
+        "level": 3, 
+        "id": "peck-the-bugs", 
+        "imageUrl": "img/phones/dell-streak-7.0.jpg", 
+        "name": "Eat all the bugs", 
+        "snippet": "Gobble up all the bugs wondering about, click to nom"
+    }
+]

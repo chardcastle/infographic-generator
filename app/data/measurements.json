@@ -1,0 +1,27 @@
+[
+    {
+        "level": 0, 
+        "id": "value-pudding",         
+        "name": "Battery power",
+        "percentage" : "12"
+        
+    }, 
+    {
+        "level": 1, 
+        "id": "value-bacon",         
+        "name": "People who like bacon", 
+        "percentage" : "36"
+    }, 
+    {
+        "level": 2,         
+        "id": "consumed",
+        "name": "Consumed",
+        "percentage" : "78"
+    }, 
+    {
+        "level": 3, 
+        "id": "win-probability",
+        "name": "Win probability",
+        "percentage" : "94"
+    }
+]
