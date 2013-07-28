@@ -4,7 +4,7 @@
  * Uses filled circles and an arc to connotate a pie chart
  *
  * Requires raphael js
- * 
+ * @author chris hardcastle <me @ chrishardcastle dot co dot uk>
  * @param  {[type]} $ [description]
  * @return {[type]}   [description]
  */
@@ -12,31 +12,37 @@
 
     $.fn.drawValue = function( options ) {
  
- 
         // Greenify the collection based on the settings variable.
-        return this.each(function(i, item){
-
+        return this.each(function(i, item) {
 
             // Set options
             var settings = $.extend({
                 // These are the defaults.
                 id: $(item).prop('id'),
-                percentage: $(item).data("percentage")
+                percentage: $(item).data("percentage"),
+                name: $(item).data("name"),
             }, options );
 
-            // console.log($(item).data("percentage"));
-            // console.log($(item).prop('id'));
-            console.log("Settings are: ");
+            // Debug
+
+            console.log('Running plugin with: ');
             console.log(settings);
 
             // Clear any existing element first
             $('#' + settings.id).empty();
 
-            var archtype = Raphael(settings.id, 100, 100),
-            circle = archtype.circle(50, 50, 40).attr({stroke: "none", fill: "#96BDAA"}),
-            // stage = $('div').prop('id', 'foo'),
-            text = archtype.text(50, 50, settings.percentage + "%").attr({fill: "#fff", "font-size": 20, "font-family": "'Fauna One', serif"});
+            // Percent background
+            var archtype = Raphael(settings.id, 200, 200),
+            circle = archtype.circle(50, 100, 40).attr({stroke: "none", fill: "#96BDAA"}),
+            
+            // Percent lable
+            text = archtype.text(50, 100, settings.percentage + "%")
+            .attr({fill: "#fff", "font-size": 20, "font-family": "'Fauna One', serif"});
 
+            // Title
+            // <h4 class="value-title">{{value.name}}</h4>
+
+            // Arch calculator            
             archtype.customAttributes.arc = function (xloc, yloc, value, total, R) {
                 var alpha = 360 / total * value,
                     a = (90 - alpha) * Math.PI / 180,
@@ -63,13 +69,18 @@
             var my_arc = archtype.path().attr({
                 "stroke": "#00AA86",
                 "stroke-width": 10,
-                arc: [50, 50, 0, 100, 40]
+                arc: [50, 100, 0, 100, 40]
             });
 
             my_arc.animate({
-                arc: [50, 50, settings.percentage, 100, 40]
+                arc: [50, 100, settings.percentage, 100, 40]
             }, 1500, "bounce");
 
+            // Update name
+            // $('#' + settings.id).find('.value-title').html(settings.name);
+            
+            console.log($(settings.target).parent().find('h4').text(), settings.name);
+            $(settings.target).parent().find('h4').text(settings.name)
         });
  
     };

@@ -12,14 +12,16 @@
             <p><strong>Error,</strong> please provide a percentage number between 0 and 100. No validation on large values.</p>
           </div>    
 
-
-            <div ng-repeat="value in values | filter:query | orderBy:orderProp" class="pad-top">
+            <!-- form controls -->
+            <div ng-repeat="value in values | filter:query | orderBy:orderProp" class="pad-top" infographic-control>
               <div class="form-group thumbnail">
-                <label>{{value.name}} (%)</label>            
-                <input type="text" class="form-control input-small" id="value-{{value.id}}-ctl"              
-                  data-old-value="{{value.percentage}}"              
-                  placeholder="{{value.percentage}}"
-                  infographic-control="{id:'{{value.id}}'}">
+                <label>Percentage title:<input type="text" class="name" 
+                              value="{{value.name}}" 
+                              data-target="value-{{value.id}}-ctl"></label>
+                <label>Percentage value (%):<input type="text" class="percentage form-control input-small" 
+                      id="value-{{value.id}}-ctl"
+                      placeholder="{{value.percentage}}" 
+                      data-target="value-{{value.id}}-ctl"></label>
                </div>
             </div>
 
@@ -36,7 +38,8 @@
         <h4 class="value-title">{{value.name}}</h4>
         <div class="value" id="value-{{value.id}}" 
               data-percentage="{{value.percentage}}" 
-              infographic-display="{percentage: '{{value.percentage}}', id:'{{value.id}}'}">
+              data-name="{{value.name}}"
+              infographic-display="{percentage: '{{value.percentage}}', id:'{{value.id}}', 'name': {{value.name}}">
         </div>
       </div>
 
