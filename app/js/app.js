@@ -9,9 +9,17 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 (function(){try{console.log();return window.console;}catch(a){return (window.console={});}}());
 
 /**
+ * Little bird / Infographics
+ *
+ * A hybrid of two projects
+ *
+ * @author chris hardcastle < me at chrishardcastle dot co dot uk >
+ */
+/**
  * App Module
  *
  * Configure routes
+ * 
  */
 
 var app = angular.module('littlebird', ['littlebirdFilters', 'littlebirdServices', 'infographicServices']).
@@ -58,7 +66,9 @@ app.directive('infographicDisplay', function() {
 // calls plugin to update illustrations
 app.directive('infographicControl', function(){
     return {
+
         restrict: 'A',
+
         link: function (scope, element, attrs) {
 
             // detect outside changes and update our input
@@ -67,37 +77,40 @@ app.directive('infographicControl', function(){
               //   element.val(scope.infographicControl);
               var target = $(element).prop('id');
               console.log('changing target ' + target);
-              // $('#' + target).drawValue({percentage:scope.infographicControl});                
+              
             });
             
+            // Events on change
             element.bind('propertychange keyup paste', function (blurEvent) {
 
-                var percentVal = $(element).find('.percentage').val(),
-                percentValue = (percentVal.length > 0) ? percentVal : $(element).find('.percentage').prop('placeholder'),
-                options = {
-                  'target' : '#' + $(element).find('input:first').data('target').replace('-ctl', ''),               
-                  'percentage': percentValue,
-                  'name': $(element).find('.name').val(),
-                }
 
-                // Basic validation
-                if ( /^\d+$/.test (options.percentage))
-                {
-                  $("#error").hide();
-                  console.log('ok');
+            // Get vars required for drawValue process  
+            var percentVal = $(element).find('.percentage').val(),
+            percentValue = (percentVal.length > 0) ? percentVal : $(element).find('.percentage').prop('placeholder'),
+            nameVal = ($(element).find('.name').val().length > 0) ? $(element).find('.name').val() : $(element).find('.name').val(),
+            nameValue = nameVal.substr(0,30),
+            options = {
+              'target' : '#' + $(element).find('input:first').data('target').replace('-ctl', ''),               
+              'percentage': percentValue,
+              'name': nameValue
+            }
 
-                } else {
+            // Detect any alpha numeric values
+            if ( /^\d+$/.test (options.percentage))
+            {
+              $("#error").hide();
+              console.log('ok');
 
-                  $("#error").show();
-                  console.log('error');
-                  return false;
+            } else {
 
-                }
+              // Freeze on error
+              $("#error").show();
+              console.log('error');
+              return false;
 
-              console.log('Directive change: ');
-              console.log(options);
-
-              // return true;
+            }
+              
+              // Redraw the illustrations
               $(options.target).drawValue(options);
                 
             });
